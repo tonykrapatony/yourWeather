@@ -60,7 +60,7 @@ let cities = [
 let newCities = cities.slice();
 document.querySelector('.city').addEventListener('keyup', (event) => {
     let input = document.querySelector('.city').value;
-    if(input.length < count){
+    if(input.length < count || input === "Backspace"){
         count--;
         newCities = cities.slice();
         for (let i=0; i<input.length; i++){
