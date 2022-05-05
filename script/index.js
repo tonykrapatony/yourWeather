@@ -136,7 +136,7 @@ const showWeather = () => {
             return data.json();
         })
         .then (data => {
-            let image = ` http://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png`,
+            let image = ` https://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png`,
             current = `<div class="city_name">
                             <img src="./images/town.png" alt="town icon">
                             <strong>${cityName}</strong>
@@ -159,7 +159,7 @@ const showWeather = () => {
                         </div>`;
             document.querySelector('.current_weather').innerHTML = current;
             for (let k in data.daily) {
-                let image = ` http://openweathermap.org/img/wn/${data.daily[k].weather[0].icon}.png`,
+                let image = ` https://openweathermap.org/img/wn/${data.daily[k].weather[0].icon}.png`,
                 sunrise = (new Date(data.daily[k].sunrise*1000)).toLocaleTimeString();
                 sunset = (new Date(data.daily[k].sunset*1000)).toLocaleTimeString();
                 result += `<li class="list_weather_item">
