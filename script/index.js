@@ -60,7 +60,7 @@ let cities = [
 let newCities = cities.slice();
 document.querySelector('.city').addEventListener('keyup', (event) => {
     let input = document.querySelector('.city').value;
-    if(event.key === "Backspace"){
+    if(input.length < count){
         count--;
         newCities = cities.slice();
         for (let i=0; i<input.length; i++){
@@ -194,23 +194,23 @@ const showWeather = () => {
             document.querySelector('.list_weather').addEventListener('click', (event) => {
                 let id = (event.target).getAttribute('data-id');
                 current = `<div class="city_name">
-                            <img src="./image/town.png" alt="town icon">
+                            <img src="./images/town.png" alt="town icon">
                             <strong>${cityName}</strong>
                             <p>${(new Date(data.daily[id].dt*1000)).toLocaleDateString()}</p>
                         </div> 
                         <div class="weather_temp">
-                            <img class="weather_temp_img" src="http://openweathermap.org/img/wn/${data.daily[id].weather[0].icon}@2x.png" alt="wether icon">
+                            <img class="weather_temp_img" src="https://openweathermap.org/img/wn/${data.daily[id].weather[0].icon}@2x.png" alt="wether icon">
                             <p class="weather_temp_descr">${(data.daily[id].weather[0].description)[0].toUpperCase()}${(data.daily[id].weather[0].description).slice(1)}</p>
-                            <p class="weather_temp_deg"><img src="./image/temperature.png" alt="temperature icon"> Temperatur ${Math.round(data.daily[id].temp.day)} &#176;C</p> 
-                            <p class="weather_temp_deg"><img src="./image/temperature.png" alt="temperature icon"> Feels like ${Math.round(data.daily[id].feels_like.day)} &#176;C</p> 
+                            <p class="weather_temp_deg"><img src="./images/temperature.png" alt="temperature icon"> Temperatur ${Math.round(data.daily[id].temp.day)} &#176;C</p> 
+                            <p class="weather_temp_deg"><img src="./images/temperature.png" alt="temperature icon"> Feels like ${Math.round(data.daily[id].feels_like.day)} &#176;C</p> 
                         </div> 
                         <div class="weather_wind">
-                            <img src="./image/wind.png" alt="wind icon">
+                            <img src="./images/wind.png" alt="wind icon">
                             Wind speed: ${data.daily[id].wind_speed} m/s
                         </div>
                         <div class="weather_sun">
-                            <div><img src="./image/sunrise.png" alt="sunrise icon"> Sunrise: ${(new Date(data.daily[id].sunrise*1000)).toLocaleTimeString()}</div>
-                            <div><img src="./image/sunset.png" alt="sunset icon"> Sunset: ${(new Date(data.daily[id].sunset*1000)).toLocaleTimeString()}</div>
+                            <div><img src="./images/sunrise.png" alt="sunrise icon"> Sunrise: ${(new Date(data.daily[id].sunrise*1000)).toLocaleTimeString()}</div>
+                            <div><img src="./images/sunset.png" alt="sunset icon"> Sunset: ${(new Date(data.daily[id].sunset*1000)).toLocaleTimeString()}</div>
                             </div>
                         </div>`;
                 document.querySelector('.current_weather').innerHTML = current;
