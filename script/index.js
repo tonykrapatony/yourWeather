@@ -124,7 +124,7 @@ const showWeather = () => {
     document.querySelector('.search_list').innerHTML = ""
         let input = document.querySelector('.city').value,
         cityName = input[0].toUpperCase() + input.slice(1);
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=0&appid=c4077c4d671278d50c0d48f246577f33")
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=0&appid=c4077c4d671278d50c0d48f246577f33")
     .then(data => {
         return data.json();
     })
